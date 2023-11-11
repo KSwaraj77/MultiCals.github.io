@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+
+    <title>GCD,LCM,Factorial</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+  </head>
+  <body class="bg-dark bg-opacity-75" style="display: flex; width: 100%; height: 100vh; justify-content: center; align-items: center;">
+
+
+    <div class="bubbles">
+      <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    
+    
+  </div>
+
+
+
+
+
+
+    <div class="container bg-dark w-50 p-5">
+        <div class="text-center">
+            <h3 class="text-light"><u><i>GCD and LCM Calculator</i></u></h3>
+        </div>
+        <div class="row pt-5">
+            <div class="col">
+              <input id="input1" value="" type="text" class="form-control text-center" placeholder="First Number" aria-label="First name">
+            </div>
+            <div class="col">
+              <input id="input2" value="" type="text" class="form-control text-center" placeholder="Second Number" aria-label="Last name">
+            </div>
+          </div>
+          <div class="bg-light text-center mt-3 w-50 m-auto rounded-pill">
+            <h4 id="output1"></h4>
+          </div>
+          
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+              <div class="col-lg-3 d-grid">
+                <button onclick="calgcd()" type="button" class="btn btn-outline-light">GCD</button>
+              </div>
+              <div class="col-lg-2"></div>
+              <div class="col-lg-3 d-grid">
+                <button onclick="callcm()" type="button" class="btn btn-outline-light">LCM</button>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+
+
+            <div class="text-center pt-3 mt-5">
+                <h3 class="text-light"><ins><i>Factorial Calculator</i></ins></h3>
+            </div>
+            <div class="row w-50 m-auto mt-3">
+                <div class="col ">
+                    <input id="input3" value="" type="text" class="form-control text-center" placeholder="Enter a Number" aria-label="First name">
+                  </div>
+            </div>
+            <div class="bg-light text-center mt-3 w-75 m-auto rounded-pill">
+                <h4 id="output2"></h4>
+            </div>
+            <div class="row text-center mt-3">
+                <div class="col">
+                    <button onclick="factorial()" type="button" class="btn btn-outline-light">Factorial</button>
+                  </div>
+            </div>
+          
+
+    </div>
+
+
+
+
+
+
+    <script>
+       function calgcd(){
+            let gcd;
+            let num1=document.getElementById("input1").value;
+            let num2=document.getElementById("input2").value;
+            for(let i=1; i<=num1 && i<=num2; i++){
+                if(num1%i==0 && num2%i==0){
+                    gcd=i;
+                }
+            }
+            document.getElementById("output1").innerHTML=`GCD of ${num1} and ${num2} is ${gcd}.`;
+        }
+
+
+
+        function callcm(){
+            let num1=document.getElementById("input1").value;
+            let num2=document.getElementById("input2").value;
+            let lcm=(num1>num2) ? num1:num2;
+            while(true){
+                if(lcm%num1 == 0 && lcm % num2 == 0){
+                    document.getElementById("output1").innerHTML=`LCM of ${num1} and ${num2} is ${lcm}.`;
+                    break;
+                }
+                lcm++;
+            }
+        }
+
+
+
+        function factorial(){
+            let num=document.getElementById("input3").value;
+            if (num < 0) {
+                document.getElementById("output2").innerHTML='Error! Factorial for negative number does not exist.';
+            } else if (num === 0) {
+                document.getElementById("output2").innerHTML=`The factorial of ${num} is 1.`;
+            } else{
+                let fact=1;
+                for(i=1;i<=num;i++){
+                fact=fact*i;
+            }
+            document.getElementById("output2").innerHTML=`The factorial of ${num} is ${fact}.`;
+            }
+        }
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
